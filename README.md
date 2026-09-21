@@ -4,7 +4,7 @@ A polyglot uptime monitoring platform built to practice production-oriented soft
 
 ## Current stack
 
-- Java 25 and Spring Boot 4
+- Java 21 and Spring Boot 4
 - PostgreSQL
 - Maven Wrapper
 
