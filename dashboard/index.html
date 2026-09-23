@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uptime Monitor</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">UPTIME MONITOR</p>
+        <h1>Know when your services go quiet.</h1>
+        <p class="intro">A small monitoring console powered by Spring Boot, Python, and TypeScript.</p>
+      </header>
+      <section class="layout">
+        <form id="monitor-form" class="panel">
+          <h2>Add a monitor</h2>
+          <label>Name <input name="name" required maxlength="100" placeholder="Public website" /></label>
+          <label>URL <input name="url" type="url" required placeholder="https://example.com" /></label>
+          <div class="row">
+            <label>Interval (seconds) <input name="intervalSeconds" type="number" min="10" value="60" required /></label>
+            <label>Timeout (seconds) <input name="timeoutSeconds" type="number" min="1" value="10" required /></label>
+          </div>
+          <button type="submit">Add monitor</button>
+          <p id="form-message" class="message" role="status"></p>
+        </form>
+        <section class="panel monitors-panel">
+          <div class="section-heading"><div><p class="eyebrow">LIVE INVENTORY</p><h2>Your monitors</h2></div><button id="refresh" class="secondary">Refresh</button></div>
+          <div id="monitors" class="monitor-list"><p class="message">Loading monitors...</p></div>
+        </section>
+      </section>
+    </main>
+    <script type="module" src="./dist/main.js"></script>
+  </body>
+</html>

@@ -35,6 +35,17 @@ public class Monitor {
 	@Column(nullable = false, updatable = false)
 	private Instant createdAt;
 
+	private String status;
+
+	private Instant lastCheckedAt;
+
+	private Integer lastStatusCode;
+
+	private Long lastResponseTimeMs;
+
+	@Column(length = 1_000)
+	private String lastError;
+
 	protected Monitor() {
 	}
 
@@ -75,11 +86,39 @@ public class Monitor {
 		return createdAt;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public Instant getLastCheckedAt() {
+		return lastCheckedAt;
+	}
+
+	public Integer getLastStatusCode() {
+		return lastStatusCode;
+	}
+
+	public Long getLastResponseTimeMs() {
+		return lastResponseTimeMs;
+	}
+
+	public String getLastError() {
+		return lastError;
+	}
+
 	public void update(String name, String url, Integer intervalSeconds, Integer timeoutSeconds, boolean enabled) {
 		this.name = name;
 		this.url = url;
 		this.intervalSeconds = intervalSeconds;
 		this.timeoutSeconds = timeoutSeconds;
 		this.enabled = enabled;
+	}
+
+	public void recordCheck(CheckResultRequest result) {
+		this.status = result.status();
+		this.lastCheckedAt = result.checkedAt();
+		this.lastStatusCode = result.statusCode();
+		this.lastResponseTimeMs = result.responseTimeMs();
+		this.lastError = result.error();
 	}
 }

@@ -44,6 +44,12 @@ public class MonitorService {
 		monitorRepository.delete(monitor);
 	}
 
+	public MonitorResponse recordCheck(Long id, CheckResultRequest result) {
+		Monitor monitor = findMonitor(id);
+		monitor.recordCheck(result);
+		return MonitorResponse.from(monitorRepository.save(monitor));
+	}
+
 	private Monitor findMonitor(Long id) {
 		return monitorRepository.findById(id)
 				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Monitor not found"));

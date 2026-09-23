@@ -9,7 +9,12 @@ public record MonitorResponse(
 		Integer intervalSeconds,
 		Integer timeoutSeconds,
 		boolean enabled,
-		Instant createdAt) {
+		Instant createdAt,
+		String status,
+		Instant lastCheckedAt,
+		Integer lastStatusCode,
+		Long lastResponseTimeMs,
+		String lastError) {
 
 	public static MonitorResponse from(Monitor monitor) {
 		return new MonitorResponse(
@@ -19,6 +24,11 @@ public record MonitorResponse(
 				monitor.getIntervalSeconds(),
 				monitor.getTimeoutSeconds(),
 				monitor.isEnabled(),
-				monitor.getCreatedAt());
+				monitor.getCreatedAt(),
+				monitor.getStatus(),
+				monitor.getLastCheckedAt(),
+				monitor.getLastStatusCode(),
+				monitor.getLastResponseTimeMs(),
+				monitor.getLastError());
 	}
 }

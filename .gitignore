@@ -34,5 +34,8 @@ build/
 
 # Personal learning notes
 PLAIN_ENGLISH_NOTES.txt
+dashboard/node_modules/
+dashboard/dist/
+worker/__pycache__/
 
 .fake

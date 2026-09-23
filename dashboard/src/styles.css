@@ -1,0 +1,37 @@
+:root {
+  color: #17212b;
+  background: #e8edf0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; background: linear-gradient(135deg, #e8edf0 0%, #f7f2e9 100%); }
+main { width: min(1120px, calc(100% - 40px)); margin: 0 auto; padding: 72px 0; }
+header { max-width: 720px; margin-bottom: 40px; }
+.eyebrow { color: #c54d32; font: 700 0.75rem/1.2 Arial, sans-serif; letter-spacing: 0.14em; margin: 0 0 12px; }
+h1 { font-size: clamp(2.5rem, 7vw, 5.8rem); line-height: 0.95; margin: 0; max-width: 760px; }
+h2, h3 { margin: 0; }
+h2 { font-size: 1.35rem; }
+.intro { color: #53616b; font: 1.1rem/1.5 Arial, sans-serif; max-width: 560px; }
+.layout { display: grid; grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr); gap: 24px; align-items: start; }
+.panel { background: rgba(255, 255, 255, 0.78); border: 1px solid #cad2d5; border-radius: 8px; padding: 28px; box-shadow: 0 18px 45px rgba(36, 52, 61, 0.08); }
+form h2 { margin-bottom: 24px; }
+label { display: grid; gap: 7px; color: #53616b; font: 0.8rem Arial, sans-serif; margin-bottom: 16px; }
+input { width: 100%; border: 1px solid #b9c3c7; border-radius: 4px; padding: 12px; color: #17212b; background: #fff; font: 1rem Georgia, serif; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+button { border: 0; border-radius: 4px; padding: 12px 16px; cursor: pointer; color: white; background: #c54d32; font: 700 0.85rem Arial, sans-serif; }
+button:hover { background: #a83e28; }
+.secondary { background: transparent; color: #c54d32; border: 1px solid #c54d32; }
+.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
+.monitor-list { display: grid; gap: 12px; }
+.monitor-card { border-top: 1px solid #d6dddf; padding: 18px 0 6px; display: flex; justify-content: space-between; gap: 20px; }
+.monitor-card h3 { margin: 8px 0 4px; font-size: 1.15rem; }
+.monitor-card a { color: #53616b; font: 0.8rem Arial, sans-serif; overflow-wrap: anywhere; }
+.monitor-card p, .message { color: #53616b; font: 0.8rem/1.4 Arial, sans-serif; margin: 8px 0; text-align: right; }
+.status { display: inline-block; border-radius: 99px; padding: 4px 8px; font: 700 0.68rem Arial, sans-serif; }
+.status-up { color: #236b50; background: #d9efe6; }
+.status-down { color: #9b3427; background: #f7ded8; }
+.status-pending { color: #7a641e; background: #f5ebc5; }
+.error { color: #9b3427; }
+@media (max-width: 760px) { main { padding: 40px 0; } .layout { grid-template-columns: 1fr; } .monitor-card { display: block; } .monitor-card p { text-align: left; } }

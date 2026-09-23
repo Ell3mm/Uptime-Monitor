@@ -46,6 +46,11 @@ public class MonitorController {
 		return monitorService.update(id, request);
 	}
 
+	@PostMapping("/{id}/checks")
+	public MonitorResponse recordCheck(@PathVariable Long id, @Valid @RequestBody CheckResultRequest result) {
+		return monitorService.recordCheck(id, result);
+	}
+
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id) {
